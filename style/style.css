@@ -1,0 +1,25 @@
+body {
+	background: url(background.jpg);
+	background-repeat: no-repeat;
+	background-size: auto;
+}
+
+#input {
+	width: 50%;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 5%;
+}
+input {
+	border: solid;
+	border-color: #000;
+	box-shadow: 1px 1px 45px 10px #000;
+}
+img {
+	height: 300px;
+	width: 300px;
+	padding-top: 5%;
+}
+#cows {
+	text-align: center;
+}
