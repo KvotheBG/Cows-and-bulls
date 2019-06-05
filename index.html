@@ -3,19 +3,31 @@
 <head>
 	<meta charset="utf-8">
 	<title>Cows and Bulls</title>
-	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css" integrity="sha384-PmY9l28YgO4JwMKbTvgaS7XNZJ30MK9FAZjjzXtlqyZCqBY6X6bXIkM++IkyinN+" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.css" />
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha256-pasqAKBDmFT4eHoN2ndd6lN370kFiGUFyTiUHWhU7k8="crossorigin="anonymous"></script>
+	
 </head>
 <body>
-	<div id="input">
-		<input type="text" name="text">
+	<div id="major" class=" animated zoomIn rounded col-md-4 offset-md-4">
+		<div>
+			<button id="newGame" class="btn btn-outline-success" type="submit">NEW GAME</button>
+		</div>
+		<div id="inputDiv">
+			<input id="number" class="rounded" type="text" name="text" maxlength="4" size="2" >
+		</div>
+		<table id="myTable" class="table table-striped">
+			<tbody>
+				<tr>
+					<td></td>
+					<td>Your numbers</td>
+					<td>Bulls</td>
+					<td>Cows</td>
+				</tr>
+			</tbody>
+		</table>
 	</div>
-	<div id="cows">
-		<img src="images/bull.png">
-		<img src="images/cow.png">
-		<img src="images/bull.png">
-		<img src="images/cow.png">
-	</div>
+	<script type="text/javascript" src="functions.js"></script>
 </body>
 </html>
