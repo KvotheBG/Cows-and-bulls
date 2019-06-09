@@ -52,15 +52,28 @@ if (!(/[0-9]/.test(char))) {
 }
 })
 
-// find the bulls and cows
+var inputNum = document.getElementById('number');
 
-var input = document.getElementById('number');
-
-input.addEventListener('keyup', function () {
+inputNum.addEventListener('keyup', function () {
 	var	allNumbers = document.getElementById('number').value;
 	var	allNumbersSplit = allNumbers.split("");
 	var bull = 0;
 	var match = 0;
+
+	// Check for repeating number in the input element
+
+	var repeat = [];
+	for (var i = 0; i < allNumbersSplit.length; i++) {
+			
+		if (repeat.indexOf(allNumbersSplit[i]) == -1) {
+			repeat.push(allNumbersSplit[i]);
+		} else {
+			alert("You can't use the same number more than once")
+			return;
+		}
+	}
+
+	// find the bulls and cows
 
 	if (allNumbersSplit.length == 4) {
 		tries++;
@@ -86,11 +99,11 @@ input.addEventListener('keyup', function () {
 		}
 		cow = match - bull;
 
+		
 		// New row in the table
 
 		$('#myTable > tbody:last-child')
 			.append('<tr class=" animated zoomIn shots"><td>'+tries+'</td><td>'+allNumbers+'</td><td>'+bull+'</td><td>'+cow+'</td></tr>');
-
 	}
 
 	// WIN
