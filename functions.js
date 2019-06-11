@@ -34,6 +34,8 @@ newGame.addEventListener('click', function () {
 	$( "#number" ).show();
 	$( "#youWin" ).remove();
 	$( ".shots" ).remove();
+	$('#myTable').removeClass('animated flash infinite');
+	$('p').empty();
 	tries = 0;
 	$('#newGame').addClass('animated bounce');
 	var wait = setTimeout(function(){
@@ -54,6 +56,8 @@ if (!(/[0-9]/.test(char))) {
 
 var inputNum = document.getElementById('number');
 
+// Keyup function 
+
 inputNum.addEventListener('keyup', function () {
 	var	allNumbers = document.getElementById('number').value;
 	var	allNumbersSplit = allNumbers.split("");
@@ -73,6 +77,7 @@ inputNum.addEventListener('keyup', function () {
 		}
 	}
 
+	console.log(repeat)
 	// find the bulls and cows
 
 	if (allNumbersSplit.length == 4) {
@@ -101,16 +106,22 @@ inputNum.addEventListener('keyup', function () {
 
 		
 		// New row in the table
-
-		$('#myTable > tbody:last-child')
-			.append('<tr class=" animated zoomIn shots"><td>'+tries+'</td><td>'+allNumbers+'</td><td>'+bull+'</td><td>'+cow+'</td></tr>');
+		if (bull == 2 && cow == 2) {
+			$('#myTable > tbody:last-child')
+				.append('<tr class=" animated rubberBand shots"><td class="red animated heartBeat infinite"> &#9825; </td><td>'+allNumbers+'</td><td class="animated heartBeat infinite red">'+bull+'</td><td class="animated heartBeat infinite red">'+cow+'</td></tr>');
+		} else{
+			$('#myTable > tbody:last-child')
+				.append('<tr class=" animated rubberBand shots"><td>'+tries+'</td><td>'+allNumbers+'</td><td>'+bull+'</td><td>'+cow+'</td></tr>');
+		}
+		$('p').text(bull+' * B | '+cow+' * C');
 	}
 
 	// WIN
 
 	if (bull == 4) {
 		$( "#number" ).hide();
-		$('#inputDiv').append('<h2 id="youWin" class="animated jackInTheBox">YOU WIN</h2>')
+		$('#inputDiv').append('<h2 id="youWin" class="animated jackInTheBox">YOU WIN</h2>');
+		$('#myTable').addClass('animated flash infinite');
 	}
 
 });
